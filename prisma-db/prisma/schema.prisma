@@ -1,0 +1,68 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model userNotes{
+  id            Int @id @default(autoincrement())
+  name          String @db.VarChar(150)
+  lastName      String @db.VarChar(150)
+  userName      String @db.VarChar(150)
+  psswrd        String @db.VarChar(16)
+  email         String @db.VarChar(100)
+  createDate    DateTime @default(now())
+  blogs         blog[]
+  notes         notes[]
+  coments       coments[]
+  categories    categories[]
+  privateStatus Boolean @default(false)
+  profilepic    String 
+}
+
+model blog{
+  id                     Int @id @default(autoincrement())
+  blogTitle              String @db.VarChar(150)
+  blogDescription        String @db.VarChar(200)
+  privateStatus          Boolean @default(false)
+  user                   userNotes @relation(fields: [createdBy], references: [id])
+  notes                  notes[]
+  createdBy              Int  
+  createDate             DateTime @default(now())
+}
+
+model notes {
+  id                     Int @id @default(autoincrement())
+  noteTitle              String @db.VarChar(150)
+  noteContent            String @db.MediumText
+  privateStatus          Boolean @default(false)
+  user                   userNotes @relation(fields: [createdBy], references: [id])
+  createdBy              Int
+  blog                   blog @relation(fields: [inBlog], references: [id])
+  inBlog                 Int
+  createDate             DateTime @default(now())
+
+}
+
+model coments{
+  id                     Int @id @default(autoincrement())
+  comentContent          String @db.MediumText
+  user                   userNotes @relation(fields: [createdBy], references: [id])
+  createdBy              Int
+  createDate             DateTime @default(now())
+}
+
+model categories{
+  id                         Int @id @default(autoincrement())
+  categoryTitle              String @db.VarChar(150)
+  categoryDescription        String @db.VarChar(200)
+  user                       userNotes @relation(fields: [createdBy], references: [id])
+  createdBy                  Int
+  createDate                 DateTime @default(now())
+}
