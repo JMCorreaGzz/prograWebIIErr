@@ -1,7 +1,3 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import Tablero from './Tablero';
 import { useEffect, useState } from "react";
 import Muro from "./Muro";
 import { useNavigate } from "react-router-dom";
@@ -19,14 +15,7 @@ if((tmpUser.value == testUser) && (tmpPassword.value == testPsswrd))
     //setauthenticated(true)
     localStorage.setItem("authenticated", true);
     
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>
-    );
-    
-    navigate("/tablero");
+    navigate("/muro");
     //alert(tmpUser.value);
     //alert(tmpPassword.value);
     
@@ -42,9 +31,10 @@ else
 }
 
 export function LoginRegister()
-{ 
-    const navigate = useNavigate(); 
-
+{
+    const navigate = useNavigate();   
+    
+     
 return ( 
 <>
 
@@ -62,7 +52,7 @@ return (
                         id = "logInButton"
                         className="btn btn-info mt-2" 
                         type="button"
-                        onClick={()=>{ Validate(navigate); }} 
+                        onClick={()=>{ Validate(navigate); }}
                         >Ingresar</button>
                     </form>
 
