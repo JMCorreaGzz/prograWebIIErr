@@ -1,20 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 * {
   margin: 0;
   font-family: "Quicksand";
   color: #333;
 }
+
+
 .navbar {
   padding: 20px;
   display: flex;
   align-items: center;
-  max-width: 600px;
+  max-width: 925px;
   margin: 0 auto;
-  border-bottom: 1px solid #f3e9b1;
+  border-bottom: 2px solid #ffdb78;
 }
 .navbar h1 {
-  color: #e9bb3e;
+  color: #ffc935;
+  font-size: 45px;
+  font-family: Permanent Marker;
 }
 .navbar .links {
   margin-left: auto;
@@ -23,9 +28,10 @@
   margin-left: 16px;
   text-decoration: none;
   padding: 6px;
+  color: #ffd35b;
 }
 .navbar a:hover {
-  color: #e9bb3e;
+  color: #ffbb01;
 }
 .content {
   max-width: 1000px;
@@ -35,6 +41,7 @@
 
 body {
 	margin: 0;
+	background: #fffacf;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
 		'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
 		'Droid Sans', 'Helvetica Neue', sans-serif;
@@ -101,7 +108,7 @@ textarea:focus {
 }
 
 .save:hover {
-	background-color: #ededed;
+	background-color: #f7f7f7;
 	cursor: pointer;
 }
 
@@ -122,6 +129,11 @@ textarea:focus {
 	justify-content: space-between;
 }
 
+.note-image {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
 .delete-icon {
 	cursor: pointer;
 }
@@ -129,7 +141,7 @@ textarea:focus {
 .search {
 	display: flex;
 	align-items: center;
-	background-color: rgb(233, 233, 233);
+	background-color: #ffe397;
 	border-radius: 10px;
 	padding: 5px;
 	margin-bottom: 1.5em;
@@ -137,7 +149,7 @@ textarea:focus {
 
 .search input {
 	border: none;
-	background-color: rgb(233, 233, 233);
+	background-color: #ffe397;
 	width: 100%;
 }
 
@@ -186,24 +198,32 @@ textarea:focus {
 
 .perfil-preview {
   padding: 10px 16px;
-  margin: 20px 0;
-  background-color: #ffffff;
-  border-bottom: 1px solid #646464;
+  margin: 10px 0;
+  background-color: #e0e0e0;
+  border-bottom: 1px solid #b8b8b8;
+  overflow: auto;
+
+  color: #000000;
 }
+
 
 .perfil-preview:hover {
   box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
 }
 
 .perfil-preview h2 {
-  font-size: 20px;
+  font-size: 17px;
   color: #000000;
   margin-bottom: 8px;
 }
 
 .perfil-preview img {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
 }
+
+.perfil-preview p {
+	color: #757575
+  }
 
 

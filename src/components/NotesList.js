@@ -3,6 +3,7 @@ import AddNote from './AddNote';
 
 const NotesList = ({
 	notes,
+	handleAddImg,
 	handleAddNote,
 	handleDeleteNote,
 }) => {
@@ -17,7 +18,7 @@ const NotesList = ({
 					handleDeleteNote={handleDeleteNote}
 				/>
 			))}
-			<AddNote handleAddNote={handleAddNote} />
+			<AddNote handleAddNote={handleAddNote} handleAddImg={handleAddImg} />
 		</div>
 	);
 };

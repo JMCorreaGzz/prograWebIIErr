@@ -1,23 +1,34 @@
+import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
-const MiPerfil = () => {
+const EditarMiPerfil = () => {
+    const [file, setFile] = useState();
     const navigate = useNavigate();
-    const handleOnClick = () => navigate("/editarPerfil");
+    const handleCancelar = () => navigate("/perfil");
+    const handleGuardar = () => navigate("/perfil");
 
     return(
         <div style={{ paddingLeft: 175 }} className="container mt-5 justify-content-center">
             <div className="card p-3">
                 <div className="d-flex align-items-center">
                     <div className="image">
-                <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" className="rounded" width="155" ></img>
+                    <input type="file" id="imgFilePerfil" accept=".jpg, .jpeg, .png" style={{width: 160}} 
+                    onChange={(event) => {
+                        console.log(event.target.files);
+                        setFile(URL.createObjectURL(event.target.files[0]));
+                    }}
+                    onClick={(e) => {
+                        e.target.value = null
+                    }} />
+                    <img src={file} alt=" " className="rounded" width="155"/>
                 </div>
                 <div className="ml-3 w-100"> 
-                   <h4 className="mb-0 mt-0">Alex</h4>
-                   <span style={{ fontSize: 17 }}>Alexander Morrison</span>
+                   <input type="text" className="mb-0 mt-0" placeholder="Username"></input>
+                   <div><input type="text" className="mb-0 mt-0" placeholder="Nombre Completo"></input></div>
                    <div className="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
 
                     <div className="d-flex flex-column">
-                        <span className="descripcion" style={{ fontSize: 15 }}>¡Qué tal! Me llamo Alex.</span>
+                        <input type="text" className="descripcion" placeholder="Descripción" style={{ width: 370, height:150 }}></input>
                     </div>
                  
                   {/*   <div className="d-flex flex-column">
@@ -32,10 +43,11 @@ const MiPerfil = () => {
 
                    </div>
 
-                   <div className="button mt-2 d-flex flex-row align-items-center">
+                   <div>
                     {/*<button className="btn btn-sm btn-outline-primary w-100">Chat</button>*/}
                     {/* <button className="btn btn-sm btn-primary w-100 ml-2">Editar</button> */}  
-                    <button style={{ width: 100 }} className="btn btn-sm btn-primary" onClick={handleOnClick}>Editar</button>
+                    <button style={{ width: 100, marginTop:7 }} className="btn btn-sm btn-primary " onClick={handleGuardar}>Guardar</button>
+                    <button style={{ width: 100, float:"right", marginTop:7 }} className="btn btn-sm btn-primary " onClick={handleCancelar}>Cancelar</button>
                    </div>
                 </div>           
                 </div>
@@ -44,4 +56,4 @@ const MiPerfil = () => {
     );
 }
 
-export default MiPerfil;
+export default EditarMiPerfil;

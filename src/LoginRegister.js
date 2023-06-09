@@ -44,6 +44,7 @@ else
 export function LoginRegister()
 { 
     const navigate = useNavigate(); 
+    const handleOnClick = () => navigate("/registro");
 
 return ( 
 <>
@@ -52,12 +53,12 @@ return (
         <div className="row mh-100vh">
             <div className="col-10 col-sm-8 col-md-6 col-lg-6 offset-1 offset-sm-2 offset-md-3 offset-lg-0 align-self-center d-lg-flex align-items-lg-center align-self-lg-stretch p-5 rounded rounded-lg-0 my-5 my-lg-0" id="login-block" style={{background: "url(assets/img/corkboard.jpg) center center / cover"}}>
                 <div className="m-auto w-lg-75 w-xl-50" data-aos="fade-up" data-aos-delay="450" id="loginSection">
-                    <div style={{textalign: "center", marginbottom: "46px"}}><a className="navbar-brand" href="index.php" style={{color: "rgb(255,255,255)", fontweight: "bold", letterspacing: "1px",borderstyle: "double"}}>&nbsp;LOG IN&nbsp;</a></div>
+                    <div style={{textalign: "center", marginbottom: "46px"}}><a className="navbar-brand" href="index.php" style={{color: "rgb(255,255,255)", fontWeight: "bold", fontSize: 50, letterspacing: "1px",borderstyle: "double"}}>&nbsp;LOG IN&nbsp;</a></div>
 
                    
                     <form name="login">
-                        <div className="form-group mb-3"><label className="form-label text-secondary" style={{color: "rgb(255,255,255)!important"}}>Correo</label><input  onInput="this.value = this.value.toUpperCase()"  id="phpEmailLogin"name="phpEmailLogin"className="form-control" type="text" required inputMode="email" placeholder="Correo"></input></div>
-                        <div className="form-group mb-3"><label className="form-label text-secondary" style={{color: "rgb(255,255,255)!important"}}>Contraseña</label><input id="phpPasswordLogin" name="phpPasswordLogin" className="form-control" type="password" required  placeholder="Contraseña"></input></div>
+                        <div className="form-group mb-3"><label style={{color: "rgb(0,0,0)", fontWeight: "bold", fontSize: 20}}>Correo</label><input  onInput="this.value = this.value.toUpperCase()"  id="phpEmailLogin"name="phpEmailLogin"className="form-control" type="text" required inputMode="email" placeholder="Correo"></input></div>
+                        <div className="form-group mb-3"><label style={{color: "rgb(0,0,0)", fontWeight: "bold", fontSize: 20}}>Contraseña</label><input id="phpPasswordLogin" name="phpPasswordLogin" className="form-control" type="password" required  placeholder="Contraseña"></input></div>
                         <button 
                         id = "logInButton"
                         className="btn btn-info mt-2" 
@@ -68,7 +69,7 @@ return (
 
                     
 
-                    <p className="mt-3 mb-0" onClick="hideLogin()" ><a className="text-info small" href="Register">¿Nuevo aqui? Registrate</a></p>
+                    <p className="mt-3 mb-0" onClick={handleOnClick} ><a className="text-info small">¿Nuevo aqui? Registrate</a></p>
                 </div>
 
             </div>

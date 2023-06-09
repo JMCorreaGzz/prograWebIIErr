@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Search from './components/Search';
-import PerfilesList from "./components/PerfilesList";
 
 const BuscarPerfiles = () => {
     const [searchText, setSearchText] = useState('');
@@ -16,11 +15,17 @@ const BuscarPerfiles = () => {
     return(
         <div className="buscar">
             <Search handleSearchNote={setSearchText} />
-            <PerfilesList
-					perfiles={perfiles.filter((perfil) =>
-						perfil.nombre.toLowerCase().includes(searchText)
-					)}
-				/>
+            {perfiles.map((perfil) => (
+                <div className="perfil-preview" key={perfil.id}>
+                    <div style={{ float:"left", display:"inline", paddingRight: 15}}>
+                    <img src={perfil.img}></img>
+                    </div>
+                    <div style={{ float:"left", display:"inline" }}>
+                    <h2>{perfil.nombre}</h2>
+                    <p>{perfil.tablero}</p>
+                    </div>
+                </div>
+            ))}
         </div>
     );
 }

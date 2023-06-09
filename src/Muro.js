@@ -1,4 +1,4 @@
-import './Muro.css';
+//import './Muro.css';
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 

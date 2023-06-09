@@ -1,11 +1,12 @@
 import { MdDeleteForever } from "react-icons/md";
+import { nanoid } from 'nanoid';
 
 
 const Note = ({ id, text, date, img, handleDeleteNote }) => {
 	return (
 		<div className='note'>
 			<span>{text}</span>
-            <img src={img}></img>
+            <img className='note-image' src={img} alt=" "></img>
 			<div className='note-footer'>
 				<small>{date}</small>
 				<MdDeleteForever
